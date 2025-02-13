@@ -44,6 +44,7 @@
             this.labelWidth = new System.Windows.Forms.Label();
             this.buttonCreate = new System.Windows.Forms.Button();
             this.buttonLeave = new System.Windows.Forms.Button();
+            this.buttonEdit = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.groupBoxInputInfo.SuspendLayout();
@@ -75,7 +76,7 @@
             // LeaveToolStripMenuItem
             // 
             this.LeaveToolStripMenuItem.Name = "LeaveToolStripMenuItem";
-            this.LeaveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.LeaveToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.LeaveToolStripMenuItem.Text = "Закрыть";
             this.LeaveToolStripMenuItem.Click += new System.EventHandler(this.LeaveToolStripMenuItem_Click);
             // 
@@ -90,19 +91,24 @@
             // ProgramInfoToolStripMenuItem
             // 
             this.ProgramInfoToolStripMenuItem.Name = "ProgramInfoToolStripMenuItem";
-            this.ProgramInfoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ProgramInfoToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.ProgramInfoToolStripMenuItem.Text = "О программе";
             this.ProgramInfoToolStripMenuItem.Click += new System.EventHandler(this.ProgramInfoToolStripMenuItem_Click);
             // 
             // dataGridView
             // 
+            this.dataGridView.AllowUserToAddRows = false;
+            this.dataGridView.AllowUserToDeleteRows = false;
             this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.ColumnHeadersVisible = false;
             this.dataGridView.Location = new System.Drawing.Point(12, 39);
             this.dataGridView.Name = "dataGridView";
+            this.dataGridView.ReadOnly = true;
+            this.dataGridView.RowHeadersVisible = false;
             this.dataGridView.Size = new System.Drawing.Size(298, 278);
             this.dataGridView.TabIndex = 1;
             // 
@@ -186,7 +192,7 @@
             this.buttonCreate.ForeColor = System.Drawing.Color.White;
             this.buttonCreate.Location = new System.Drawing.Point(224, 329);
             this.buttonCreate.Name = "buttonCreate";
-            this.buttonCreate.Size = new System.Drawing.Size(86, 37);
+            this.buttonCreate.Size = new System.Drawing.Size(86, 28);
             this.buttonCreate.TabIndex = 3;
             this.buttonCreate.Text = "Создать";
             this.buttonCreate.UseVisualStyleBackColor = false;
@@ -198,13 +204,27 @@
             this.buttonLeave.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.buttonLeave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonLeave.ForeColor = System.Drawing.Color.White;
-            this.buttonLeave.Location = new System.Drawing.Point(224, 388);
+            this.buttonLeave.Location = new System.Drawing.Point(224, 397);
             this.buttonLeave.Name = "buttonLeave";
-            this.buttonLeave.Size = new System.Drawing.Size(86, 37);
+            this.buttonLeave.Size = new System.Drawing.Size(86, 28);
             this.buttonLeave.TabIndex = 4;
             this.buttonLeave.Text = "Выход";
             this.buttonLeave.UseVisualStyleBackColor = false;
             this.buttonLeave.Click += new System.EventHandler(this.buttonLeave_Click);
+            // 
+            // buttonEdit
+            // 
+            this.buttonEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonEdit.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.buttonEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonEdit.ForeColor = System.Drawing.Color.White;
+            this.buttonEdit.Location = new System.Drawing.Point(224, 363);
+            this.buttonEdit.Name = "buttonEdit";
+            this.buttonEdit.Size = new System.Drawing.Size(86, 28);
+            this.buttonEdit.TabIndex = 5;
+            this.buttonEdit.Text = "Изменить";
+            this.buttonEdit.UseVisualStyleBackColor = false;
+            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
             // 
             // Form1
             // 
@@ -212,6 +232,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(322, 437);
+            this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.buttonLeave);
             this.Controls.Add(this.buttonCreate);
             this.Controls.Add(this.groupBoxInputInfo);
@@ -249,6 +270,7 @@
         private System.Windows.Forms.TextBox textBoxB;
         private System.Windows.Forms.TextBox textBoxA;
         private System.Windows.Forms.TextBox textBoxWeight;
+        private System.Windows.Forms.Button buttonEdit;
     }
 }
 

@@ -19,3 +19,14 @@ D:\Users\1213-9\Downloads\WindowsFormsAppSulemanov4\bin\Debug\WindowsFormsAppSul
 D:\Users\1213-9\Downloads\WindowsFormsAppSulemanov4\bin\Debug\WindowsFormsAppSulemanov4.exe
 D:\Users\1213-9\Downloads\WindowsFormsAppSulemanov4\bin\Debug\WindowsFormsAppSulemanov4.pdb
 D:\Users\1213-9\Downloads\WindowsFormsAppSulemanov4\obj\Debug\WindowsFormsAppSulemanov4.AboutProgram.resources
+C:\Users\GG343430\Desktop\WindowsFormsAppSulemanov4\bin\Debug\WindowsFormsAppSulemanov4.exe.config
+C:\Users\GG343430\Desktop\WindowsFormsAppSulemanov4\bin\Debug\WindowsFormsAppSulemanov4.exe
+C:\Users\GG343430\Desktop\WindowsFormsAppSulemanov4\bin\Debug\WindowsFormsAppSulemanov4.pdb
+C:\Users\GG343430\Desktop\WindowsFormsAppSulemanov4\obj\Debug\WindowsFormsAppSulemanov4.csproj.AssemblyReference.cache
+C:\Users\GG343430\Desktop\WindowsFormsAppSulemanov4\obj\Debug\WindowsFormsAppSulemanov4.AboutProgram.resources
+C:\Users\GG343430\Desktop\WindowsFormsAppSulemanov4\obj\Debug\WindowsFormsAppSulemanov4.Form1.resources
+C:\Users\GG343430\Desktop\WindowsFormsAppSulemanov4\obj\Debug\WindowsFormsAppSulemanov4.Properties.Resources.resources
+C:\Users\GG343430\Desktop\WindowsFormsAppSulemanov4\obj\Debug\WindowsFormsAppSulemanov4.csproj.GenerateResource.cache
+C:\Users\GG343430\Desktop\WindowsFormsAppSulemanov4\obj\Debug\WindowsFormsAppSulemanov4.csproj.CoreCompileInputs.cache
+C:\Users\GG343430\Desktop\WindowsFormsAppSulemanov4\obj\Debug\WindowsFormsAppSulemanov4.exe
+C:\Users\GG343430\Desktop\WindowsFormsAppSulemanov4\obj\Debug\WindowsFormsAppSulemanov4.pdb

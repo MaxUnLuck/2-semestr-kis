@@ -16,7 +16,7 @@ namespace WindowsFormsAppSulemanov4
         {
             InitializeComponent();
         }
-
+        MyMatrix<int> newMyMatrix;
         private void buttonCreate_Click(object sender, EventArgs e)
         {
             try
@@ -24,7 +24,7 @@ namespace WindowsFormsAppSulemanov4
                 Convert.ToUInt32(textBoxWeight.Text);
                 Convert.ToInt32(textBoxA.Text);
                 Convert.ToInt32(textBoxB.Text);
-                MyMatrix<int> newMyMatrix = new MyMatrix<int>(Convert.ToUInt32(textBoxWeight.Text), Convert.ToInt32(textBoxA.Text), Convert.ToInt32(textBoxB.Text));
+                newMyMatrix = new MyMatrix<int>(Convert.ToUInt32(textBoxWeight.Text), Convert.ToInt32(textBoxA.Text), Convert.ToInt32(textBoxB.Text));
                 Random rand = new Random();
                 for (uint x = 0; x < Convert.ToUInt32(textBoxWeight.Text); x++)
                 {
@@ -33,7 +33,6 @@ namespace WindowsFormsAppSulemanov4
                         newMyMatrix.SetCell(rand.Next(1, 100), x, y);
                     }
                 }
-                newMyMatrix.EnabelFunction();
                 FillDataGridViev(newMyMatrix.matrix, Convert.ToInt32(textBoxWeight.Text), Convert.ToInt32(textBoxWeight.Text));
             }
             catch (FormatException)
@@ -78,6 +77,12 @@ namespace WindowsFormsAppSulemanov4
         {
             AboutProgram aboutProgram = new AboutProgram();
             aboutProgram.Show();
+        }
+
+        private void buttonEdit_Click(object sender, EventArgs e)
+        {
+            newMyMatrix.EnabelFunction();
+            FillDataGridViev(newMyMatrix.matrix, Convert.ToInt32(textBoxWeight.Text), Convert.ToInt32(textBoxWeight.Text));
         }
     }
 }
