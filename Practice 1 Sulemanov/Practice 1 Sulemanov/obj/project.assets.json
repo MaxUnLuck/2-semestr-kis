@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\GG343430\\source\\repos\\Practice 1 Sulemanov\\Practice 1 Sulemanov\\Practice 1 Sulemanov.csproj",
+      "projectUniqueName": "C:\\Users\\GG343430\\Desktop\\Practice 1 Sulemanov\\Practice 1 Sulemanov\\Practice 1 Sulemanov.csproj",
       "projectName": "Practice 1 Sulemanov",
-      "projectPath": "C:\\Users\\GG343430\\source\\repos\\Practice 1 Sulemanov\\Practice 1 Sulemanov\\Practice 1 Sulemanov.csproj",
+      "projectPath": "C:\\Users\\GG343430\\Desktop\\Practice 1 Sulemanov\\Practice 1 Sulemanov\\Practice 1 Sulemanov.csproj",
       "packagesPath": "C:\\Users\\GG343430\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\GG343430\\source\\repos\\Practice 1 Sulemanov\\Practice 1 Sulemanov\\obj\\",
+      "outputPath": "C:\\Users\\GG343430\\Desktop\\Practice 1 Sulemanov\\Practice 1 Sulemanov\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

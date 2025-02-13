@@ -1,0 +1,35 @@
+D:\Users\1213-9\Documents\2-ИСПд\Сулейманов\Practice 1 Sulemanov\Practice 1 Sulemanov\bin\Debug\net8.0-windows\Practice 1 Sulemanov.exe
+D:\Users\1213-9\Documents\2-ИСПд\Сулейманов\Practice 1 Sulemanov\Practice 1 Sulemanov\bin\Debug\net8.0-windows\Practice 1 Sulemanov.deps.json
+D:\Users\1213-9\Documents\2-ИСПд\Сулейманов\Practice 1 Sulemanov\Practice 1 Sulemanov\bin\Debug\net8.0-windows\Practice 1 Sulemanov.runtimeconfig.json
+D:\Users\1213-9\Documents\2-ИСПд\Сулейманов\Practice 1 Sulemanov\Practice 1 Sulemanov\bin\Debug\net8.0-windows\Practice 1 Sulemanov.dll
+D:\Users\1213-9\Documents\2-ИСПд\Сулейманов\Practice 1 Sulemanov\Practice 1 Sulemanov\bin\Debug\net8.0-windows\Practice 1 Sulemanov.pdb
+D:\Users\1213-9\Documents\2-ИСПд\Сулейманов\Practice 1 Sulemanov\Practice 1 Sulemanov\obj\Debug\net8.0-windows\Practice_1_Sulemanov.Form1.resources
+D:\Users\1213-9\Documents\2-ИСПд\Сулейманов\Practice 1 Sulemanov\Practice 1 Sulemanov\obj\Debug\net8.0-windows\Practice 1 Sulemanov.csproj.GenerateResource.cache
+D:\Users\1213-9\Documents\2-ИСПд\Сулейманов\Practice 1 Sulemanov\Practice 1 Sulemanov\obj\Debug\net8.0-windows\Practice 1 Sulemanov.GeneratedMSBuildEditorConfig.editorconfig
+D:\Users\1213-9\Documents\2-ИСПд\Сулейманов\Practice 1 Sulemanov\Practice 1 Sulemanov\obj\Debug\net8.0-windows\Practice 1 Sulemanov.AssemblyInfoInputs.cache
+D:\Users\1213-9\Documents\2-ИСПд\Сулейманов\Practice 1 Sulemanov\Practice 1 Sulemanov\obj\Debug\net8.0-windows\Practice 1 Sulemanov.AssemblyInfo.cs
+D:\Users\1213-9\Documents\2-ИСПд\Сулейманов\Practice 1 Sulemanov\Practice 1 Sulemanov\obj\Debug\net8.0-windows\Practice 1 Sulemanov.csproj.CoreCompileInputs.cache
+D:\Users\1213-9\Documents\2-ИСПд\Сулейманов\Practice 1 Sulemanov\Practice 1 Sulemanov\obj\Debug\net8.0-windows\Practice 1 Sulemanov.dll
+D:\Users\1213-9\Documents\2-ИСПд\Сулейманов\Practice 1 Sulemanov\Practice 1 Sulemanov\obj\Debug\net8.0-windows\refint\Practice 1 Sulemanov.dll
+D:\Users\1213-9\Documents\2-ИСПд\Сулейманов\Practice 1 Sulemanov\Practice 1 Sulemanov\obj\Debug\net8.0-windows\Practice 1 Sulemanov.pdb
+D:\Users\1213-9\Documents\2-ИСПд\Сулейманов\Practice 1 Sulemanov\Practice 1 Sulemanov\obj\Debug\net8.0-windows\Practice 1 Sulemanov.genruntimeconfig.cache
+D:\Users\1213-9\Documents\2-ИСПд\Сулейманов\Practice 1 Sulemanov\Practice 1 Sulemanov\obj\Debug\net8.0-windows\ref\Practice 1 Sulemanov.dll
+D:\Users\1213-9\Documents\2-ИСПд\Сулейманов\Practice 1 Sulemanov\Practice 1 Sulemanov\obj\Debug\net8.0-windows\Practice_1_Sulemanov.AboutProgram.resources
+C:\Users\GG343430\Desktop\Practice 1 Sulemanov\Practice 1 Sulemanov\bin\Debug\net8.0-windows\Practice 1 Sulemanov.exe
+C:\Users\GG343430\Desktop\Practice 1 Sulemanov\Practice 1 Sulemanov\bin\Debug\net8.0-windows\Practice 1 Sulemanov.deps.json
+C:\Users\GG343430\Desktop\Practice 1 Sulemanov\Practice 1 Sulemanov\bin\Debug\net8.0-windows\Practice 1 Sulemanov.runtimeconfig.json
+C:\Users\GG343430\Desktop\Practice 1 Sulemanov\Practice 1 Sulemanov\bin\Debug\net8.0-windows\Practice 1 Sulemanov.dll
+C:\Users\GG343430\Desktop\Practice 1 Sulemanov\Practice 1 Sulemanov\bin\Debug\net8.0-windows\Practice 1 Sulemanov.pdb
+C:\Users\GG343430\Desktop\Practice 1 Sulemanov\Practice 1 Sulemanov\obj\Debug\net8.0-windows\Practice_1_Sulemanov.Form1.resources
+C:\Users\GG343430\Desktop\Practice 1 Sulemanov\Practice 1 Sulemanov\obj\Debug\net8.0-windows\Practice 1 Sulemanov.csproj.GenerateResource.cache
+C:\Users\GG343430\Desktop\Practice 1 Sulemanov\Practice 1 Sulemanov\obj\Debug\net8.0-windows\Practice 1 Sulemanov.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\GG343430\Desktop\Practice 1 Sulemanov\Practice 1 Sulemanov\obj\Debug\net8.0-windows\Practice 1 Sulemanov.AssemblyInfoInputs.cache
+C:\Users\GG343430\Desktop\Practice 1 Sulemanov\Practice 1 Sulemanov\obj\Debug\net8.0-windows\Practice 1 Sulemanov.AssemblyInfo.cs
+C:\Users\GG343430\Desktop\Practice 1 Sulemanov\Practice 1 Sulemanov\obj\Debug\net8.0-windows\Practice 1 Sulemanov.csproj.CoreCompileInputs.cache
+C:\Users\GG343430\Desktop\Practice 1 Sulemanov\Practice 1 Sulemanov\obj\Debug\net8.0-windows\Practice 1 Sulemanov.dll
+C:\Users\GG343430\Desktop\Practice 1 Sulemanov\Practice 1 Sulemanov\obj\Debug\net8.0-windows\refint\Practice 1 Sulemanov.dll
+C:\Users\GG343430\Desktop\Practice 1 Sulemanov\Practice 1 Sulemanov\obj\Debug\net8.0-windows\Practice 1 Sulemanov.pdb
+C:\Users\GG343430\Desktop\Practice 1 Sulemanov\Practice 1 Sulemanov\obj\Debug\net8.0-windows\Practice 1 Sulemanov.genruntimeconfig.cache
+C:\Users\GG343430\Desktop\Practice 1 Sulemanov\Practice 1 Sulemanov\obj\Debug\net8.0-windows\ref\Practice 1 Sulemanov.dll
+C:\Users\GG343430\Desktop\Practice 1 Sulemanov\Practice 1 Sulemanov\obj\Debug\net8.0-windows\Practice_1_Sulemanov.Properties.Resources.resources
+C:\Users\GG343430\Desktop\Practice 1 Sulemanov\Practice 1 Sulemanov\obj\Debug\net8.0-windows\Practice_1_Sulemanov.AboutProgramForm.resources

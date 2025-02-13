@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Practice 1 Sulemanov/1.0.0": {
+        "runtime": {
+          "Practice 1 Sulemanov.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Practice 1 Sulemanov/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
