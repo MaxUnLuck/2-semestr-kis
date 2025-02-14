@@ -1,0 +1,11 @@
+C:\Users\GG343430\source\repos\Practice 2_1 Sulemanov\Practice 2_1 Sulemanov\bin\Debug\Practice 2_1 Sulemanov.exe.config
+C:\Users\GG343430\source\repos\Practice 2_1 Sulemanov\Practice 2_1 Sulemanov\bin\Debug\Practice 2_1 Sulemanov.exe
+C:\Users\GG343430\source\repos\Practice 2_1 Sulemanov\Practice 2_1 Sulemanov\bin\Debug\Practice 2_1 Sulemanov.pdb
+C:\Users\GG343430\source\repos\Practice 2_1 Sulemanov\Practice 2_1 Sulemanov\obj\Debug\Practice 2_1 Sulemanov.csproj.AssemblyReference.cache
+C:\Users\GG343430\source\repos\Practice 2_1 Sulemanov\Practice 2_1 Sulemanov\obj\Debug\Practice_2_1_Sulemanov.Form1.resources
+C:\Users\GG343430\source\repos\Practice 2_1 Sulemanov\Practice 2_1 Sulemanov\obj\Debug\Practice_2_1_Sulemanov.Properties.Resources.resources
+C:\Users\GG343430\source\repos\Practice 2_1 Sulemanov\Practice 2_1 Sulemanov\obj\Debug\Practice 2_1 Sulemanov.csproj.GenerateResource.cache
+C:\Users\GG343430\source\repos\Practice 2_1 Sulemanov\Practice 2_1 Sulemanov\obj\Debug\Practice 2_1 Sulemanov.csproj.CoreCompileInputs.cache
+C:\Users\GG343430\source\repos\Practice 2_1 Sulemanov\Practice 2_1 Sulemanov\obj\Debug\Practice 2_1 Sulemanov.exe
+C:\Users\GG343430\source\repos\Practice 2_1 Sulemanov\Practice 2_1 Sulemanov\obj\Debug\Practice 2_1 Sulemanov.pdb
+C:\Users\GG343430\source\repos\Practice 2_1 Sulemanov\Practice 2_1 Sulemanov\obj\Debug\Practice_2_1_Sulemanov.AboutProgramForm.resources
