@@ -13,7 +13,7 @@ namespace KsenomorphGame
         string description;
         //гены
         string stats = string.Empty;
-        Gene[] genes = new Gene[3];
+        public Gene[] genes = new Gene[3];
         public float attack;
         public float protection;
         public float survivalRate;
@@ -40,13 +40,20 @@ namespace KsenomorphGame
         {
             stats = string.Empty;
             stats += " - " + "Описание формы жизни:" + Environment.NewLine;
-            stats += " - " + "\t" + name + Environment.NewLine;
-            stats += " - " + "\t" + description + Environment.NewLine;
+            stats += " - " + "\tназвание -\t" + name + Environment.NewLine;
+            stats += " - " + "\tописание -\t" + description + Environment.NewLine;
             stats += " - " + "\tГены:" + Environment.NewLine;
+            stats += " - " + "\t\tназвание -\t" + genes[0].name + Environment.NewLine;
+            stats += " - " + "\t\tописание -\t" + genes[0].description + Environment.NewLine;
             stats += " - " + "\t\tатака =\t" + attack + Environment.NewLine;
             stats += " - " + "\t\tзащита =\t" + protection + Environment.NewLine;
             stats += " - " + "\t\tвыжеваемость =\t" + survivalRate + Environment.NewLine;
             stats += " - " + "\t\tинтелект =\t" + intelligence + " %" + Environment.NewLine;
+        }
+        public Gene GeneSteal()
+        {
+            Random random = new Random();
+            return genes[random.Next(0,3)];
         }
     }
 }
