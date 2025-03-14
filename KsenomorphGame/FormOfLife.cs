@@ -9,10 +9,10 @@ namespace KsenomorphGame
     internal class FormOfLife
     {
         //описание
-        string name;
-        string description;
+        public string name;
+        public string description;
         //гены
-        string stats = string.Empty;
+        public string stats = string.Empty;
         public Gene[] genes = new Gene[3];
         public float attack;
         public float protection;
