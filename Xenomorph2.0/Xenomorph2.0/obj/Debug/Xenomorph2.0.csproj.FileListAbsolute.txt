@@ -1,0 +1,11 @@
+C:\Users\GG343430\source\repos\Xenomorph2.0\Xenomorph2.0\bin\Debug\Xenomorph2.0.exe.config
+C:\Users\GG343430\source\repos\Xenomorph2.0\Xenomorph2.0\bin\Debug\Xenomorph2.0.exe
+C:\Users\GG343430\source\repos\Xenomorph2.0\Xenomorph2.0\bin\Debug\Xenomorph2.0.pdb
+C:\Users\GG343430\source\repos\Xenomorph2.0\Xenomorph2.0\obj\Debug\Xenomorph2.0.csproj.AssemblyReference.cache
+C:\Users\GG343430\source\repos\Xenomorph2.0\Xenomorph2.0\obj\Debug\Xenomorph2._0.Form1.resources
+C:\Users\GG343430\source\repos\Xenomorph2.0\Xenomorph2.0\obj\Debug\Xenomorph2._0.Properties.Resources.resources
+C:\Users\GG343430\source\repos\Xenomorph2.0\Xenomorph2.0\obj\Debug\Xenomorph2.0.csproj.GenerateResource.cache
+C:\Users\GG343430\source\repos\Xenomorph2.0\Xenomorph2.0\obj\Debug\Xenomorph2.0.csproj.CoreCompileInputs.cache
+C:\Users\GG343430\source\repos\Xenomorph2.0\Xenomorph2.0\obj\Debug\Xenomorph2.0.exe
+C:\Users\GG343430\source\repos\Xenomorph2.0\Xenomorph2.0\obj\Debug\Xenomorph2.0.pdb
+C:\Users\GG343430\source\repos\Xenomorph2.0\Xenomorph2.0\obj\Debug\Xenomorph2._0.war.resources
