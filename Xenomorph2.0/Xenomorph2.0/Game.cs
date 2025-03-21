@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Net.Http.Headers;
 using System.Windows.Forms;
 
 namespace KsenomorphGame
@@ -48,6 +46,15 @@ namespace KsenomorphGame
                 lore += "ген:" + name + Environment.NewLine;
                 lore += "Название - " + name + Environment.NewLine;
                 lore += "Описание - " + description + Environment.NewLine;
+                return lore;
+            }
+            public string GetStatsLore() // получение лора
+            {
+                string lore = string.Empty;
+                lore += "атака:" + attack + Environment.NewLine;
+                lore += "защита:" + protection + Environment.NewLine;
+                lore += "выжеваемость:" + survivalRate + Environment.NewLine;
+                lore += "интелект:" + intelligence + Environment.NewLine;
                 return lore;
             }
         }
@@ -189,6 +196,32 @@ namespace KsenomorphGame
                 return lore;
             }
         }
+        /////////////////////////////// Флот ///////////////////////////////
+        protected class SpaceFleet
+        {
+            public string name;
+            public string description;
+            public float buffAttack;
+            public float buffProtected;
+            public SpaceFleet(string name, string description, float buffAttack, float buffProtected)
+            {
+                this.name = name;
+                this.description = description;
+                this.buffAttack = buffAttack;
+                this.buffProtected = buffProtected;
+            }
+            public string GetLore()
+            {
+                string lore = string.Empty;
+                lore += "Флот:" + Environment.NewLine;
+                lore += "название - " + name + Environment.NewLine;
+                lore += "описание - " + description + Environment.NewLine;
+                lore += "бафы:" + Environment.NewLine;
+                lore += "атака - " + (buffAttack - 10) + Environment.NewLine;
+                lore += "защита - " + (buffProtected - 10) + Environment.NewLine;
+                return lore;
+            }
+        }
             //*////////////////////////////////|///////////////|////////////////////////////////*//
             //*////////////////////////////////|/// фракция ///|////////////////////////////////*//
             //*////////////////////////////////V///////////////V////////////////////////////////*//
@@ -203,8 +236,11 @@ namespace KsenomorphGame
                 public List<Gene> geneStealed = new List<Gene>();
                 public List<Comander> comanders = new List<Comander>();
                 public List<BioWeapon> bioWeapons = new List<BioWeapon>();
-                private const double criticalAttack = 1.2;
+                public List<SpaceFleet> spaceFleets = new List<SpaceFleet>();
                 private const double partOfFOLCountAttack = 0.05;
+                public double criticalAttack = 1.2;
+                public int chanceOfkrit = 90;
+                public int chanceOfMiss = 40;
                 public Fraction(string name, string description, List<FormOfLife> formsOfLife, List<Planet> planets)
                 {
                     this.name = name;
@@ -217,7 +253,7 @@ namespace KsenomorphGame
                     bioWeapons.Add(bioWeapon);
                 }
                 public string LastWarHistory;
-                public string War(Fraction fraction, Comander comander, BioWeapon bioWeapon) // Война
+                public string War(Fraction fraction, Comander comander, BioWeapon bioWeapon, SpaceFleet spaceFleet) // Война
                 {
                     LastWarHistory = string.Empty;
                     LastWarHistory += $"Война:{name} атака на {fraction.name}";
@@ -232,11 +268,11 @@ namespace KsenomorphGame
                     {
                         attackerAT += formsOfLife[i].attack;
                     }
-                    attackerAT = attackerAT / formsOfLife.Count + comander.buffAttack + bioWeapon.Attack;
+                    attackerAT = (attackerAT / formsOfLife.Count + comander.buffAttack + bioWeapon.Attack) * (spaceFleet.buffAttack / 10);
                     double attackerPT = 0;
                     for (int i = 0; i < formsOfLife.Count; i++)
                     {
-                        attackerPT += formsOfLife[i].protection + comander.buffProtected;
+                        attackerPT += (formsOfLife[i].protection + comander.buffProtected) * (spaceFleet.buffProtected / 10);
                     }
                     attackerPT = attackerPT / formsOfLife.Count;
                     LastWarHistory += Environment.NewLine +
@@ -272,56 +308,60 @@ namespace KsenomorphGame
                     while (true)
                     {
                         step++;
-                        switch (random.Next(0, 3)) // атака атакующего
+                        int chance = random.Next(0, 101);
+                        if (chance > chanceOfkrit)
                         {
-                            case 0: // крит атака
-                                defencerHP -= attackerAT / defencerPT * attackerHP * partOfFOLCountAttack * criticalAttack;
-                                LastWarHistory += $"Крит атака ({name}) = " + Math.Round(attackerAT / defencerPT * attackerHP * partOfFOLCountAttack * criticalAttack, 3) + Environment.NewLine + Environment.NewLine;
-                                break;
-                            case 1: // простая атака
-                                defencerHP -= attackerAT / defencerPT * attackerHP * partOfFOLCountAttack;
-                                LastWarHistory += $"Атака ({name}) = " + Math.Round(attackerAT / defencerPT * attackerHP * partOfFOLCountAttack, 3) + Environment.NewLine + Environment.NewLine;
-                                break;
-                            case 2: // промах
-                                LastWarHistory += $"промах ({name})" + Environment.NewLine + Environment.NewLine;
-                                break;
+                             defencerHP -= attackerAT / defencerPT * attackerHP * partOfFOLCountAttack * criticalAttack;
+                             LastWarHistory += $"Крит атака ({name}) = " + Math.Round(attackerAT / defencerPT * attackerHP * partOfFOLCountAttack * criticalAttack, 3) + Environment.NewLine + Environment.NewLine;
+                        }
+                        if (chance >= chanceOfMiss && chance <= chanceOfkrit)
+                        {
+                            defencerHP -= attackerAT / defencerPT * attackerHP * partOfFOLCountAttack;
+                            LastWarHistory += $"Атака ({name}) = " + Math.Round(attackerAT / defencerPT * attackerHP * partOfFOLCountAttack, 3) + Environment.NewLine + Environment.NewLine;
+                        }
+                        if (chance < chanceOfMiss)
+                        {
+                            LastWarHistory += $"промах ({name})" + Environment.NewLine + Environment.NewLine;
                         }
                         if (defencerHP < 0)
                         {
+                            if (fraction.planets.Count == 1)
+                            {
+                                for (int i = 0; i < fraction.spaceFleets.Count; i++)
+                                {
+                                    spaceFleets.Add(fraction.spaceFleets[i]);
+                                }
+                            }
                             LastWarHistory += Environment.NewLine + $"!победа ({name})!"; // Обьявление победы
-
                             Planet tempPlanet;// передача планеты
                             tempPlanet = fraction.planets[fraction.planets.Count - 1];
-                            fraction.planets.Remove(tempPlanet);
+                            fraction.planets.RemoveAt(fraction.planets.Count - 1);
                             planets.Add(tempPlanet);
-
                             geneStealed.Add(fraction.formsOfLife[random.Next(formsOfLife.Count)].genes[random.Next(0, 3)]); // кража рандомного гена
-
                             for (int i = 0; i < fraction.formsOfLifeCount.Count; i++)
                             {
                                 fraction.formsOfLifeCount[i] = Convert.ToInt32(fraction.formsOfLifeCount[i] * 0.8);
                             }
-
                             for (int i = 0; i < formsOfLifeCount.Count; i++)
                             {
                                 formsOfLifeCount[i] = Convert.ToInt32(formsOfLifeCount[i] * 0.9);
                             }
-
                             break;
                         }
-                        switch (random.Next(0, 3)) // атака защищающегося
+                        chance = random.Next(0, 101);
+                        if (chance > chanceOfkrit)
                         {
-                            case 0: // крит атака
-                                attackerHP -= defencerAT / defencerPT * defencerHP * partOfFOLCountAttack * criticalAttack;
-                                LastWarHistory += $"Крит атака ({fraction.name}) = " + Math.Round(defencerAT / defencerPT * defencerHP * partOfFOLCountAttack * criticalAttack, 3) + Environment.NewLine + Environment.NewLine;
-                                break;
-                            case 1: // простая атака
-                                attackerHP -= defencerAT / defencerPT * defencerHP * partOfFOLCountAttack;
-                                LastWarHistory += $"Атака ({fraction.name}) = " + Math.Round(defencerAT / defencerPT * defencerHP * partOfFOLCountAttack, 3) + Environment.NewLine + Environment.NewLine;
-                                break;
-                            case 2: // промах
-                                LastWarHistory += $"промах ({fraction.name})" + Environment.NewLine + Environment.NewLine;
-                                break;
+                            attackerHP -= defencerAT / defencerPT * defencerHP * partOfFOLCountAttack * criticalAttack;
+                            LastWarHistory += $"Крит атака ({fraction.name}) = " + Math.Round(defencerAT / defencerPT * defencerHP * partOfFOLCountAttack * criticalAttack, 3) + Environment.NewLine + Environment.NewLine;
+                        }
+                        if (chance >= chanceOfMiss && chance <= chanceOfkrit)
+                        {
+                            attackerHP -= defencerAT / defencerPT * defencerHP * partOfFOLCountAttack;
+                            LastWarHistory += $"Атака ({fraction.name}) = " + Math.Round(defencerAT / defencerPT * defencerHP * partOfFOLCountAttack, 3) + Environment.NewLine + Environment.NewLine;
+                        }
+                        if (chance < chanceOfMiss)
+                        {
+                            LastWarHistory += $"промах ({fraction.name})" + Environment.NewLine + Environment.NewLine;
                         }
                         if (attackerHP < 0)
                         {
@@ -336,7 +376,6 @@ namespace KsenomorphGame
                             {
                                 formsOfLifeCount[i] = Convert.ToInt32(formsOfLifeCount[i] * 0.8);
                             }
-
                             break;
                         }
                         if (step > 100)
@@ -345,20 +384,18 @@ namespace KsenomorphGame
                             break;
                         }
                     }
-                    IsFractionLife();
-                    fraction.IsFractionLife();
+                    fraction.IsFractionLife(fraction);
                     return LastWarHistory;
                 }
-                private bool IsFractionLife()
+                private bool IsFractionLife(Fraction fraction)
                 {
-                    if (planets.Count == 0)
+                    if (fraction.planets.Count == 0)
                     {
-                        isLife = false;
+                        fraction.isLife = false;
                         return false;
                     }
                     else
                     {
-                        isLife = true;
                         return true;
                     }
                 }
@@ -387,7 +424,7 @@ namespace KsenomorphGame
                 {
                     for (int i = 0; i < formsOfLife.Count; i++)
                     {
-                        formsOfLifeCount[i] = Convert.ToInt32(formsOfLifeCount[i] * (1 + formsOfLife[i].survivalRate / 10));
+                        formsOfLifeCount[i] = Convert.ToInt32(formsOfLifeCount[i] * (1 + formsOfLife[i].survivalRate / 100));
                     }
                 }
                 public string GetLore()
@@ -456,6 +493,7 @@ namespace KsenomorphGame
         public void UpdateActiveFraction() // обновление списка имен фракций
         {
             ActiveFraction.Clear();
+            ActiveFractionIndex.Clear();
             for (int i = 0; i < fractions.Count; i++)
             {
                 if (fractions[i].isLife)
@@ -467,12 +505,10 @@ namespace KsenomorphGame
         }
         public List<string> GetActiveFractions() // получение списка имен фракций
         {
-            UpdateActiveFraction();
             return ActiveFraction;
         }
         public List<int> GetActiveFractionsIndex() // получение
         {
-            UpdateActiveFraction();
             return ActiveFractionIndex;
         }
         public void GameLoad() // наполнение мира всяким многим в лист fractions
@@ -486,9 +522,9 @@ namespace KsenomorphGame
             List<Planet> LPHuman = new List<Planet>(); LPHuman.Add(PTerra);
             List<Planet> LPXen = new List<Planet>(); LPXen.Add(PUpeter);
             // гены
-            Gene GXenomorph = new Gene("Ксеноморф", "Стандартный ген ксеноморфов.", 12, 8, 10, 3);
-            Gene GHuman = new Gene("Хомосапиенс", "Хомосапиенс, существо слабое но очень умное.", 8, 2, 2, 2);
-            Gene GXen = new Gene("Зен", "Неизвестно откуда, но они появились в галактике.", 10, 4, 20, 4);
+            Gene GXenomorph = new Gene("Ксеноморф", "Стандартный ген ксеноморфов.", 12, 8, 3, 3);
+            Gene GHuman = new Gene("Хомосапиенс", "Хомосапиенс, существо слабое но очень умное.", 8, 2, 2, 12);
+            Gene GXen = new Gene("Зенос", "Ген небывалой выжеваемости, дающий возможность захватить многие миры.", 6, 4, 4, 4);
             // формы жизни
             FormOfLife FOLXenomorph = new FormOfLife("Ксеноморф стандарт", "Пугающий захватчик галактик, идеальный хищник, в крови котоого циркулирует кислота!", GXenomorph);
             FormOfLife FOLHuman = new FormOfLife("Человек", "Умственно развитый социальный ораганизм, но очень слабый.", GHuman);
@@ -519,6 +555,14 @@ namespace KsenomorphGame
             FPlayer.comanders.Add(CXqueen3);
             FHuman.comanders.Add(CHImperator);
             FXen.comanders.Add(CXGabenBaby);
+            // флоты
+            SpaceFleet SFXeSpaceFleet = new SpaceFleet("Нейро жуки", "Открыли космическую экспансию для ксеноморфов", 12, 10);
+            SpaceFleet SFHSpaceFleet = new SpaceFleet("Имперский флот", "Открыли космическую экспансию для ксеноморфов", 16, 20);
+            SpaceFleet SFXSpaceFleet = new SpaceFleet("Телепортация", "Открыли меж-вселенную экспансию для зеносов", 10, 10);
+            // заполнение флотов
+            FPlayer.spaceFleets.Add(SFXeSpaceFleet);
+            FHuman.spaceFleets.Add(SFHSpaceFleet);
+            FXen.spaceFleets.Add(SFXSpaceFleet);
             // лист фракций
             fractions.Add(FPlayer);
             fractions.Add(FHuman);
@@ -552,7 +596,21 @@ namespace KsenomorphGame
             }
             return genes;
         }
+        public List<string> GetSpaceFleetList() // список био оружия
+        {
+            List<string> spaceFeet = new List<string>();
+            for (int i = 0; i < fractions[0].spaceFleets.Count; i++)
+            {
+                spaceFeet.Add(fractions[0].spaceFleets[i].name);
+            }
+            return spaceFeet;
+        }
         ////////////////////////////////////// управление //////////////////////////////////////
+        bool isAtacked = false;
+        public bool GetIsAtacked()
+        {
+            return isAtacked;
+        }
         public void IsGameOver()
         {
             if (fractions[0].isLife == false)
@@ -573,15 +631,65 @@ namespace KsenomorphGame
         public void PlayerSkip() // пропуск хода
         {
             GameUpdate();
+            isAtacked = false;
         }
-        public string PlayerWar(int indexFraction, int indexComander, int indexBioWeapon) // война
+        public string PlayerWar(int indexFraction, int indexComander, int indexBioWeapon, int indexSpaceFleet) // война
         {
-            GameUpdate();
-            return fractions[0].War(fractions[indexFraction], fractions[0].comanders[indexComander], fractions[0].bioWeapons[indexBioWeapon]);
+            isAtacked = true;
+            return fractions[0].War(fractions[indexFraction], fractions[0].comanders[indexComander], fractions[0].bioWeapons[indexBioWeapon], fractions[0].spaceFleets[indexSpaceFleet]);
         }
         public bool PlayerCreateFormOfLife(string name, string description, int indexGene1, int indexGene2)
         {
-            return fractions[0].CreateFormOfLive(name, description, fractions[0].geneStealed[indexGene1], fractions[0].geneStealed[indexGene2]);
+            bool isCreated = fractions[0].CreateFormOfLive(name, description, fractions[0].geneStealed[indexGene1], fractions[0].geneStealed[indexGene2]);
+            if (isCreated)
+            {
+                fractions[0].formsOfLife[fractions[0].formsOfLife.Count - 1].genes[1] = fractions[0].geneStealed[indexGene1];
+                fractions[0].formsOfLife[fractions[0].formsOfLife.Count - 1].genes[2] = fractions[0].geneStealed[indexGene2];
+                fractions[0].formsOfLife[fractions[0].formsOfLife.Count - 1].UpdateStats();
+            }
+            return isCreated;
+        }
+        ////////////////////////////////////// прокачка //////////////////////////////////////
+        public int skillPoints = 0;
+        public void SkillPointsUp(int Num)
+        {
+            skillPoints += Num;
+        }
+        public int GetSkillPoint()
+        {
+            return skillPoints;
+        }
+        protected int[] lvlMissChanceInts = new int[3] {20, 10, 0};
+        protected int[] lvlKritChanceInts = new int[3] {80, 70, 60};
+        protected double[] lvlKritNumInts = new double[3] {1.6, 2, 2.4};
+        public int lvlMissChance = 0;
+        public int lvlKritChance = 0;
+        public int lvlKritNum = 0;
+        public bool PlayerLVLUP(int lvlupMissChance, int lvlupKritChance, int lvlupKritNum)
+        {
+            if (Math.Abs(lvlupMissChance - lvlMissChance) + Math.Abs(lvlupKritChance - lvlKritChance) + Math.Abs(lvlKritNum - lvlupKritNum) <= skillPoints && skillPoints - Math.Abs(lvlupMissChance - lvlMissChance) + Math.Abs(lvlupKritChance - lvlKritChance) + Math.Abs(lvlKritNum - lvlupKritNum) >= 0)
+            {
+                skillPoints -= Math.Abs(lvlupMissChance - lvlMissChance) + Math.Abs(lvlupKritChance - lvlKritChance) + Math.Abs(lvlupKritNum - lvlKritNum);
+                lvlMissChance = lvlupMissChance;
+                lvlKritChance = lvlupKritChance;
+                lvlKritNum = lvlupKritNum;
+                fractions[0].chanceOfMiss = lvlMissChanceInts[lvlupMissChance];
+                fractions[0].chanceOfkrit = lvlKritChanceInts[lvlupKritChance];
+                fractions[0].criticalAttack =  lvlKritNumInts[lvlKritNum];
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public string GetStatsLvlLore()
+        {
+            string stats = string.Empty;
+            stats += "шанс промаха = " + fractions[0].chanceOfMiss + " %." + Environment.NewLine;
+            stats += "шанс крита = " + (100 - fractions[0].chanceOfkrit) + " %." + Environment.NewLine;
+            stats += "сила крита = " + (fractions[0].criticalAttack * 100) + " %." + Environment.NewLine;
+            return stats;
         }
         /////////////////////////////////////// вывод информации ///////////////////////////////////////
         public string GetLoreFraction(int indexFraction) // лор своей фракции
@@ -621,20 +729,72 @@ namespace KsenomorphGame
             {
                 Lore += fraction.planets[i].GetLore();
             }
+            Lore += Environment.NewLine; Lore += Environment.NewLine;
+            Lore += "*-*Космический флот*-*:" + Environment.NewLine;
+            for (int i = 0; i < fraction.spaceFleets.Count; i++)
+            {
+                Lore += fraction.spaceFleets[i].GetLore();
+            }
             return Lore;
         }
-        public List<string> GetLoreFractionName()
+        public string GetFractionsLore()
         {
-            List<string> names = new List<string>();
+            string fractionsLore = string.Empty;
             for (int i = 0; i < fractions.Count; i++)
             {
-                names.Add(fractions[i].name);
+                fractionsLore += fractions[i].GetLore() + Environment.NewLine + Environment.NewLine;
             }
-            return names;
+            return fractionsLore;
         }
-        public int GetLoreCountOfFractions()
+        public string GetFormsOfLifeLore()
         {
-            return fractions.Count;
+            string formsOfLifeLore = string.Empty;
+            for (int i = 0; i < fractions.Count; i++)
+            {
+                for (int j = 0; j < fractions[i].formsOfLife.Count; j++)
+                {
+                    formsOfLifeLore += fractions[i].formsOfLife[j].GetLore() + Environment.NewLine + Environment.NewLine;
+                }
+            }
+            return formsOfLifeLore;
+        }
+        public string GetGenesLore()
+        {
+            string genesLore = string.Empty;
+            for (int i = 0; i < fractions.Count; i++)
+            {
+                for (int j = 0; j < fractions[i].formsOfLife.Count; j++)
+                {
+                    genesLore += fractions[i].formsOfLife[j].genes[0].GetLore();
+                    genesLore += "Статы:" + Environment.NewLine;
+                    genesLore += fractions[i].formsOfLife[j].genes[0].GetStatsLore() + Environment.NewLine + Environment.NewLine;
+                }
+            }
+            return genesLore;
+        }
+        public string GetPlanetsLore()
+        {
+            string PlanetsLore = string.Empty;
+            for (int i = 0; i < fractions.Count; i++)
+            {
+                for (int j = 0; j < fractions[i].planets.Count; j++)
+                {
+                    PlanetsLore += fractions[i].planets[j].GetLore() + Environment.NewLine + Environment.NewLine;
+                }
+            }
+            return PlanetsLore;
+        }
+        public string GetSpaceFleetLore()
+        {
+            string SpaceFleetLore = string.Empty;
+            for (int i = 0; i < fractions.Count; i++)
+            {
+                for (int j = 0; j < fractions[i].spaceFleets.Count; j++)
+                {
+                    SpaceFleetLore += fractions[i].spaceFleets[j].GetLore() + Environment.NewLine + Environment.NewLine;
+                }
+            }
+            return SpaceFleetLore;
         }
     }
 }

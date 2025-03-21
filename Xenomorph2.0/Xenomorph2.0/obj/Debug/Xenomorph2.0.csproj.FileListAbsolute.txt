@@ -9,3 +9,7 @@ C:\Users\GG343430\source\repos\Xenomorph2.0\Xenomorph2.0\obj\Debug\Xenomorph2.0.
 C:\Users\GG343430\source\repos\Xenomorph2.0\Xenomorph2.0\obj\Debug\Xenomorph2.0.exe
 C:\Users\GG343430\source\repos\Xenomorph2.0\Xenomorph2.0\obj\Debug\Xenomorph2.0.pdb
 C:\Users\GG343430\source\repos\Xenomorph2.0\Xenomorph2.0\obj\Debug\Xenomorph2._0.war.resources
+C:\Users\GG343430\source\repos\Xenomorph2.0\Xenomorph2.0\obj\Debug\Xenomorph2._0.FormCreateFormOfLife.resources
+C:\Users\GG343430\source\repos\Xenomorph2.0\Xenomorph2.0\obj\Debug\Xenomorph2._0.FormLvlUp.resources
+C:\Users\GG343430\source\repos\Xenomorph2.0\Xenomorph2.0\obj\Debug\Xenomorph2._0.FormLore.resources
+C:\Users\GG343430\source\repos\Xenomorph2.0\Xenomorph2.0\obj\Debug\Xenomorph2._0.AboutProgram.resources

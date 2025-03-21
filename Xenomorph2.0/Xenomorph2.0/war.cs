@@ -17,9 +17,14 @@ namespace Xenomorph2._0
         {
             InitializeComponent();
             listBoxFraction.Items.Clear();
-            for (int i = 0; i < Game.getInstance().GetActiveFractions().Count; i++)
+            for (int i = 1; i < Game.getInstance().GetActiveFractions().Count; i++)
             {
                 listBoxFraction.Items.Add(Game.getInstance().GetActiveFractions()[i]);
+            }
+            comboBoxSpaceFeet.Items.Clear();
+            for (int i = 0; i < Game.getInstance().GetSpaceFleetList().Count; i++)
+            {
+                comboBoxSpaceFeet.Items.Add(Game.getInstance().GetSpaceFleetList()[i]);
             }
             comboBoxCommander.Items.Clear();
             for (int i = 0; i < Game.getInstance().GetComanderList().Count; i++)
@@ -53,11 +58,12 @@ namespace Xenomorph2._0
                     }
                     else
                     {
-                        textBoxWarLore.Text = Game.getInstance().PlayerWar(Game.getInstance().GetActiveFractionsIndex()[listBoxFraction.SelectedIndex],comboBoxCommander.SelectedIndex,comboBoxBioWeapon.SelectedIndex);
+                        textBoxWarLore.Text = Game.getInstance().PlayerWar(Game.getInstance().GetActiveFractionsIndex()[listBoxFraction.SelectedIndex + 1],comboBoxCommander.SelectedIndex,comboBoxBioWeapon.SelectedIndex, comboBoxSpaceFeet.SelectedIndex);
                         buttonAccept.Enabled = false;
                         listBoxFraction.Enabled = false;
                         comboBoxBioWeapon.Enabled = false;
                         comboBoxCommander.Enabled = false;
+                        comboBoxSpaceFeet.Enabled = false;
                     }
                 }
             }
