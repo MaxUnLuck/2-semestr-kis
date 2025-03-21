@@ -1,0 +1,65 @@
+﻿<Window x:Class="PracticeSulemanov7_2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PracticeSulemanov7_2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF757575"/>
+                <GradientStop Color="#FF5C5C5C" Offset="1"/>
+                <GradientStop Color="White" Offset="0.318"/>
+                <GradientStop Color="White" Offset="0.545"/>
+                <GradientStop Color="White" Offset="0.325"/>
+                <GradientStop Color="Transparent" Offset="0.531"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="121*"/>
+            <ColumnDefinition Width="679*"/>
+        </Grid.ColumnDefinitions>
+        <Menu Grid.ColumnSpan="2" Height="20" VerticalAlignment="Top">
+            <Menu.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF444444"/>
+                    <GradientStop Color="#FF818181" Offset="1"/>
+                </LinearGradientBrush>
+            </Menu.Background>
+            <MenuItem x:Name="Input_Btn" Height="20" Width="100" Header="Input" FontFamily="Calibri Light" FontSize="16" Click="Input_Btn_Click">
+                <MenuItem.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF838383"/>
+                        <GradientStop Color="#FFB1B1B1" Offset="1"/>
+                    </LinearGradientBrush>
+                </MenuItem.Background>
+            </MenuItem>
+            <MenuItem x:Name="Calc_Btn" Height="20" Width="100" Header="Calc" FontFamily="Calibri Light" FontSize="16">
+                <MenuItem.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF838383"/>
+                        <GradientStop Color="#FFB1B1B1" Offset="1"/>
+                    </LinearGradientBrush>
+                </MenuItem.Background>
+            </MenuItem>
+            <MenuItem x:Name="Exit_Btn" Height="20" Width="100" Header="Exit" FontFamily="Calibri Light" FontSize="16" Click="Exit_Btn_Click">
+                <MenuItem.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF838383"/>
+                        <GradientStop Color="#FFB1B1B1" Offset="1"/>
+                    </LinearGradientBrush>
+                </MenuItem.Background>
+            </MenuItem>
+            <MenuItem x:Name="AboutProgram_Btn" Height="20" Width="100" Header="About" FontFamily="Calibri Light" FontSize="16">
+                <MenuItem.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF838383"/>
+                        <GradientStop Color="#FFB1B1B1" Offset="1"/>
+                    </LinearGradientBrush>
+                </MenuItem.Background>
+            </MenuItem>
+        </Menu>
+    </Grid>
+</Window>
