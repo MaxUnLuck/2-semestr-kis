@@ -1,0 +1,7 @@
+C:\Users\GG343430\source\repos\Practice3Sulemanov\Practice3Sulemanov\obj\Debug\Practice3Sulemanov.csproj.AssemblyReference.cache
+C:\Users\GG343430\source\repos\Practice3Sulemanov\Practice3Sulemanov\obj\Debug\Practice3Sulemanov.csproj.CoreCompileInputs.cache
+C:\Users\GG343430\source\repos\Practice3Sulemanov\Practice3Sulemanov\bin\Debug\Practice3Sulemanov.exe.config
+C:\Users\GG343430\source\repos\Practice3Sulemanov\Practice3Sulemanov\bin\Debug\Practice3Sulemanov.exe
+C:\Users\GG343430\source\repos\Practice3Sulemanov\Practice3Sulemanov\bin\Debug\Practice3Sulemanov.pdb
+C:\Users\GG343430\source\repos\Practice3Sulemanov\Practice3Sulemanov\obj\Debug\Practice3Sulemanov.exe
+C:\Users\GG343430\source\repos\Practice3Sulemanov\Practice3Sulemanov\obj\Debug\Practice3Sulemanov.pdb
