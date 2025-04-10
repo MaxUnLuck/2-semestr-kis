@@ -1,0 +1,43 @@
+{% extends  "base.html" %}
+<title>{% block title %}Главная{% endblock %}</title>
+{% block style %}{% endblock %}
+{% block content %}
+{{statuses}}
+{{applications}}
+<div class="wrapper">
+    <div class="applications">
+        {% for application in applications %}
+        <div class="application">
+            <p class="car_number">
+                госномер: {{ application.car_number }}
+            </p>
+            <p class="description">
+                описание: {{ application.description }}
+            </p>
+            <p class="status">
+                статус: {{ application.title }}
+            </p>
+            <div class="images">
+                {% for image in application.images %}
+                <div class="image">
+                    <a href="/media/photos/{{image.id_image}}{{image.file_ext}}">
+                        <img src="/media/photos/{{image.id_image}}{{image.file_ext}}" height="50">
+                    </a>
+                </div>
+                {%endfor%}
+            </div>
+                <form method="post">
+                    {% csrf_token %}
+                    <select>
+                        {% for status in statuses %}
+                        <option value="{{status.id_status}}"{% if status.id_status == application.id_status %} selected {% endif %} >{{status.title}}</option>
+                        {% endfor %}
+                    </select>
+                    <button type="submit" name = "application" value="{{application.id_application}}">ОК</button>
+                </form>
+            <hr>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

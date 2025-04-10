@@ -1,0 +1,23 @@
+
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    {% block style %}{% endblock %}
+</head>
+<body>
+    <header>
+        <a href="{% url 'login'%}">Войти в учетную запись</a>
+        <a href="{% url 'signup'%}">Зарегистрироваться</a>
+        <a href="{% url 'logout'%}">Выйти из учетной записи</a>
+        <a href="{% url 'newapp'%}">Новое заявление</a>
+        <a href="{% url 'main'%}">На главную</a>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>
