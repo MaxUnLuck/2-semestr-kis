@@ -1,0 +1,21 @@
+﻿<Window x:Class="Practice7_1.AboutProgram"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Practice7_1"
+        mc:Ignorable="d"
+        Title="AboutProgram" Height="400" Width="400" Closed="Close" SizeChanged="SizeControl">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FFA6BCCC"/>
+            <GradientStop Color="#FF556673" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid>
+        <Image Margin="10,10,10,114" Source="/mem.jpg" Stretch="Fill"/>
+        <Button x:Name="LinkButton" Content="Link for autor" Margin="0,0,10,43" RenderTransformOrigin="0.515,0.497" HorizontalAlignment="Right" Width="120" Height="33" VerticalAlignment="Bottom" Click="Click"/>
+        <Label Content="The program is designed to &#10;be practical for UIA &#10;educational institutions." HorizontalAlignment="Left" Margin="10,0,0,10" Width="255" FontSize="20" Height="99" VerticalAlignment="Bottom"/>
+
+    </Grid>
+</Window>
